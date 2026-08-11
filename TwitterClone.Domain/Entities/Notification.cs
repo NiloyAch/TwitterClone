@@ -6,14 +6,16 @@
         private Guid _userId;
         private Guid _fromUserId;
         private string _type;
-        private Guid? _tweetId;
+        private string _message;
         private bool _isRead;
         private DateTime _createdAt;
+        private DateTime _modifieddAt;
+
 
         public Notification()
         {
             _id = Guid.NewGuid();
-            _isRead = false;
+ 
             _createdAt = DateTime.UtcNow;
         }
 
@@ -25,12 +27,9 @@
         public Guid UserId
         {
             get { return _userId; }
+            set { _userId = value; }
         }
 
-        public Guid FromUserId
-        {
-            get { return _fromUserId; }
-        }
 
         public string Type
         {
@@ -38,10 +37,10 @@
             set { _type = value; }
         }
 
-        public Guid? TweetId
+        public string Message
         {
-            get { return _tweetId; }
-            set { _tweetId = value; }
+            get { return _message; }
+            set { _message = value; }
         }
 
         public bool IsRead
@@ -53,6 +52,12 @@
         public DateTime CreatedAt
         {
             get { return _createdAt; }
+        }
+
+        public DateTime ModifiedAt
+        {
+            get { return _modifiedAt; }
+            set { _modifiedAt = value; }
         }
     }
 }
