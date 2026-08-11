@@ -5,12 +5,14 @@
         private Guid _id;
         private Guid _userId;
         private Guid _tweetId;
-        private DateTime _retweetedAt;
+        private string _comment;
+        private DateTime _createdAt;
+        private DateTime _modifiedAt;
 
         public Retweet()
         {
             _id = Guid.NewGuid();
-            _retweetedAt = DateTime.UtcNow;
+            _createdAt = DateTime.UtcNow;
         }
 
         public Guid Id
@@ -21,16 +23,31 @@
         public Guid UserId
         {
             get { return _userId; }
+            set { _userId = value; }
         }
 
         public Guid TweetId
         {
             get { return _tweetId; }
+            set { _tweetId = value; }
         }
 
-        public DateTime RetweetedAt
+        public string Comment
         {
-            get { return _retweetedAt; }
+            get { return _comment; }
+            set { _comment = value; }
         }
+
+        public DateTime CreatedAt
+        {
+            get { return _createdAt; }
+        }
+
+        public DateTime ModifiedAt
+        {
+            get { return _modifiedAt; }
+            set { _modifiedAt = value; }
+        }
+
     }
 }

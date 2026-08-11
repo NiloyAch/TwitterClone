@@ -9,7 +9,7 @@
         private string _message;
         private bool _isRead;
         private DateTime _createdAt;
-        private DateTime _modifieddAt;
+        private DateTime _modifiedAt;
 
 
         public Notification()
