@@ -1,11 +1,6 @@
 ﻿namespace TwitterClone.Domain.Entities
 {
-<<<<<<< Updated upstream
-    public class Notification
-    public class Notification : BaseEntity
-=======
     public abstract class Notification : BaseEntity
->>>>>>> Stashed changes
     {
         private Guid _id;
         private Guid _userId;
@@ -17,43 +12,46 @@
         private Guid _createdBy;
         private Guid _modifiedBy;
 
-
-        public Notification()
-        public Notification(string notificationType) : base(Guid.NewGuid())
+        protected Notification(string notificationType) : base(Guid.NewGuid())
         {
             _id = Guid.NewGuid();
             _createdAt = DateTime.UtcNow;
+            _type = notificationType;
         }
 
         public Guid Id
         {
             get { return _id; }
-            _type = notificationType;
         }
-
 
         public Guid UserId
         {
-            set { _type = value; }
+            get { return _userId; }
+            set { _userId = value; }
         }
 
-        public string Message
+        public string Type
+        {
+            get { return _type; }
+        }
+
         protected string Message
         {
             get { return _message; }
             set { _message = value; }
+        }
+
+        public bool IsRead
+        {
+            get { return _isRead; }
             set { _isRead = value; }
         }
 
         public DateTime CreatedAt
-        public override string DescribeRecord()
         {
             get { return _createdAt; }
-            var baseRecord = base.DescribeRecord();
-            return $"{baseRecord}, UserId: {UserId}, Type: {Type}, Message: {Message}, IsRead: {IsRead}";
         }
 
-<<<<<<< Updated upstream
         public DateTime ModifiedAt
         {
             get { return _modifiedAt; }
@@ -72,15 +70,17 @@
             set { _modifiedBy = value; }
         }
 
-=======
         public string GetNotificationInfo()
         {
             return $"UserId: {_userId}, NotificationType: {_type}";
         }
 
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, UserId: {UserId}, Type: {Type}, Message: {Message}, IsRead: {IsRead}";
+        }
 
         public abstract string GetMessage();
-        
->>>>>>> Stashed changes
     }
 }
