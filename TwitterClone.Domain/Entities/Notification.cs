@@ -1,12 +1,16 @@
 ﻿namespace TwitterClone.Domain.Entities
 {
+<<<<<<< Updated upstream
     public class Notification
     public class Notification : BaseEntity
+=======
+    public abstract class Notification : BaseEntity
+>>>>>>> Stashed changes
     {
         private Guid _id;
         private Guid _userId;
         private string _type;
-        private string _message;
+        private string _message = " ";
         private bool _isRead;
         private DateTime _createdAt;
         private DateTime _modifiedAt;
@@ -49,6 +53,7 @@
             return $"{baseRecord}, UserId: {UserId}, Type: {Type}, Message: {Message}, IsRead: {IsRead}";
         }
 
+<<<<<<< Updated upstream
         public DateTime ModifiedAt
         {
             get { return _modifiedAt; }
@@ -67,5 +72,15 @@
             set { _modifiedBy = value; }
         }
 
+=======
+        public string GetNotificationInfo()
+        {
+            return $"UserId: {_userId}, NotificationType: {_type}";
+        }
+
+
+        public abstract string GetMessage();
+        
+>>>>>>> Stashed changes
     }
 }

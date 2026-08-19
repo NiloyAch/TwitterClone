@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace TwitterClone.Domain.Entities
 {
@@ -25,6 +21,11 @@ namespace TwitterClone.Domain.Entities
         {
             var baseRecord = base.DescribeRecord();
             return $"{baseRecord}, LikeByUserId: {LikeByUserId}";
+        }
+
+        public override string GetMessage()
+        {
+            return $"User with ID {LikeByUserId} liked your post.";
         }
     }
 }

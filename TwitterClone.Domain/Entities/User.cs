@@ -15,8 +15,12 @@
         public User()
         public User() : base(Guid.NewGuid())
         {
+<<<<<<< Updated upstream
             _id = Guid.NewGuid();
             _createdAt = DateTime.UtcNow;
+=======
+
+>>>>>>> Stashed changes
         }
 
         public Guid Id
