@@ -1,4 +1,6 @@
-﻿namespace TwitterClone.Domain.Entities
+﻿using System;
+
+namespace TwitterClone.Domain.Entities
 {
     public class Tweet : BaseEntity
     {
@@ -25,7 +27,6 @@
         public override string DescribeRecord()
         {
             var baseRecord = base.DescribeRecord();
-
             return $"{baseRecord}, UserId: {UserId}, Content: {Content}";
         }
     }

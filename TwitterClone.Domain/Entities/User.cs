@@ -2,17 +2,13 @@
 {
     public class User : BaseEntity
     {
-
-        public User() : base(Guid.NewGuid())
-        {
-            
-        }
-
-
         private string _firstName;
         private string _lastName;
         private string _email;
 
+        public User() : base(Guid.NewGuid())
+        {
+        }
 
         public string FirstName
         {
@@ -32,7 +28,6 @@
             set { _email = value; }
         }
 
-      
         public override string DescribeRecord()
         {
             var baseRecord = base.DescribeRecord();

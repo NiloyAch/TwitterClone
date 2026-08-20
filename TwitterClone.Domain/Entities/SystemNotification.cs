@@ -10,7 +10,6 @@ namespace TwitterClone.Domain.Entities
     {
         public SystemNotification() : base("System")
         {
-
         }
 
         public void AddMessage(string message)
@@ -27,6 +26,5 @@ namespace TwitterClone.Domain.Entities
         {
             return $"System Notification: {Message}";
         }
-
     }
 }

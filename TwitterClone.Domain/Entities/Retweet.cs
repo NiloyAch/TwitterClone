@@ -1,4 +1,6 @@
-﻿namespace TwitterClone.Domain.Entities
+﻿
+
+namespace TwitterClone.Domain.Entities
 {
     public class Retweet : BaseEntity
     {
@@ -31,7 +33,6 @@
         public override string DescribeRecord()
         {
             var baseRecord = base.DescribeRecord();
-
             return $"{baseRecord}, UserId: {UserId}, TweetId: {TweetId}, Comment: {Comment}";
         }
     }
