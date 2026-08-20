@@ -12,6 +12,13 @@ namespace TwitterClone.Domain.Entities
             _content = content;
         }
 
+
+        public Tweet(Guid userId, string content) : base(Guid.NewGuid())
+        {
+            _userId = userId;
+            _content = content;
+        }
+
         public Guid UserId
         {
             get { return _userId; }
