@@ -1,4 +1,6 @@
-﻿namespace TwitterClone.Domain.Entities
+﻿using System;
+
+namespace TwitterClone.Domain.Entities
 {
     public class Message : BaseEntity
     {
@@ -10,6 +12,9 @@
 
         public Message() : base(Guid.NewGuid())
         {
+            _content = string.Empty;
+            _sentAt = DateTime.UtcNow;
+            _isRead = false;
         }
 
         public Guid SenderId

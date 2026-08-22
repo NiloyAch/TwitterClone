@@ -1,4 +1,6 @@
-﻿namespace TwitterClone.Domain.Entities
+﻿using System;
+
+namespace TwitterClone.Domain.Entities
 {
     public class Like : BaseEntity
     {

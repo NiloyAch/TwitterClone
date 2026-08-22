@@ -10,7 +10,6 @@ namespace TwitterClone.Domain.Entities
     {
         public SystemNotification() : base("System")
         {
-
         }
 
         public void AddMessage(string message)
@@ -21,6 +20,11 @@ namespace TwitterClone.Domain.Entities
         public override string DescribeRecord()
         {
             return base.DescribeRecord();
+        }
+
+        public override string GetMessage()
+        {
+            return $"System Notification: {Message}";
         }
     }
 }

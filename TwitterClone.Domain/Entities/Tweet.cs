@@ -1,4 +1,4 @@
-﻿using TwitterClone.Domain.Entities;
+﻿using System;
 
 namespace TwitterClone.Domain.Entities
 {
@@ -9,6 +9,13 @@ namespace TwitterClone.Domain.Entities
 
         public Tweet(string content) : base(Guid.NewGuid())
         {
+            _content = content;
+        }
+
+
+        public Tweet(Guid userId, string content) : base(Guid.NewGuid())
+        {
+            _userId = userId;
             _content = content;
         }
 
