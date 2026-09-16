@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using TwitterClone.Domain.Entities;
 
 namespace Twitter.Test
@@ -9,7 +11,11 @@ namespace Twitter.Test
     {
         public void Run()
         {
-            var tweet = new Tweet("This is my first tweet!");
+            Tweet likeableTweet = new Tweet("This is another tweet!");
+
+            Console.WriteLine(likeableTweet.CanBeLiked());
+
+            var maxTweetLength = 200;
         }
     }
 }
