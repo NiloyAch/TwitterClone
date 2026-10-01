@@ -1,37 +1,92 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TwitterClone.Api.Controllers
 {
-    [Route("api/users")]
+
+    // api/users
+    [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController : ControllerBase
     {
+
+        public UsersController() { }
+
+
+        // /api/users
         [HttpGet]
         public IActionResult GetUsers()
         {
-            var users = new[]
+            return Ok(new List<object>
             {
                 new
                 {
-                    Id = 1,
-                    Username = "niloy@45",
-                    Name = "Niloy Acharjee"
+                    UserId = Guid.NewGuid(),
+                    UserName = "user1",
                 },
                 new
                 {
-                    Id = 2,
-                    Username = "rahim@56",
-                    Name = "Rahim"
+                    UserId = Guid.NewGuid(),
+                    UserName = "user2",
                 },
-                new
-                {
-                    Id = 3,
-                    Username = "karim@25",
-                    Name = "Karim"
-                }
-            };
+            });
+        }
 
-            return Ok(users);
+        // /api/users
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult CreateUser()
+        {
+            return Ok(new
+            {
+                UserId = Guid.NewGuid(),
+                UserName = "newuser",
+            });
+        }
+
+
+        // /api/users/{id}
+        [HttpGet("{id}")]
+        public IActionResult GetUserById([FromRoute] Guid id)
+        {
+            return Ok(new
+            {
+                UserId = id,
+                UserName = "user" + id.ToString(),
+            });
+        }
+
+
+        // PUT /api/users/{id}
+        [HttpPut("{id}")]
+        public IActionResult UpdateUser([FromRoute] Guid id)
+        {
+            return Ok(new
+            {
+                UserId = id,
+                UserName = "updateduser" + id.ToString(),
+            });
+        }
+
+
+        // PATCH /api/users/{id}/phoneNumber
+        [HttpPatch("{id}/phoneNumber")]
+        public IActionResult UpdateUserPhoneNumber([FromRoute] Guid id, [FromBody] string phoneNumber)
+        {
+            return Ok("hello");
+
+        }
+
+        // DELETE /api/users/{id}
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUser([FromRoute] Guid id)
+        {
+            return Ok(new
+            {
+                UserId = id,
+                Message = "User deleted successfully.",
+            });
         }
     }
 }
