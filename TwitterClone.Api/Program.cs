@@ -1,3 +1,4 @@
+using TwitterClone.Api.Data;
 using TwitterClone.Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,11 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Repositories registration
+
+builder.Services.AddSingleton<UserRepository>();
+
 
 var app = builder.Build();
 
